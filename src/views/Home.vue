@@ -19,9 +19,13 @@
     </div>
 
     <div class="interactive-box">
-      <button class="secondary-button">
+      <button
+        class="secondary-button"
+        @click.prevent="showSocialMediaPopup = true"
+      >
         <img src="~@/assets/icn_share.svg" alt="icon share" />
       </button>
+
       <button class="nextVideo" @click.prevent="randomNumberGenerator">
         Video
       </button>
@@ -30,10 +34,15 @@
       </button>
     </div>
   </div>
+  <div v-show="showSocialMediaPopup" :class="$style.socialMediaPopup">
+    <SocialMedia :url="socialMediaShareUrl" />
+    <button @click.prevent="showSocialMediaPopup = false">Cancel</button>
+  </div>
 </template>
 
 <script>
 import sanity from "@/sanity";
+import SocialMedia from "@/components/button/SocialMedia";
 const query = `*[_type == 'videoItem']{
     title,
     videoLink
@@ -47,14 +56,20 @@ export default {
       videos: null,
       videoNumber: 0,
       menuOpen: false,
+      socialMedia: ["facebook", "twitter", "linkedin"],
+      showSocialMediaPopup: false,
     };
   },
   components: {
     Menu,
+    SocialMedia,
   },
   computed: {
     videoLinkRandom() {
       return this.videos[this.videoNumber]?.videoLink;
+    },
+    socialMediaShareUrl() {
+      return `${window.location.origin}${this.$route.fullPath}`;
     },
   },
   methods: {
@@ -80,9 +95,21 @@ export default {
   },
   created() {
     this.videoQueryFetch();
+    console.log("route", this.$route, this);
   },
 };
 </script>
+<style module>
+.socialMediaPopup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 20;
+}
+</style>
 <style lang="scss" scoped>
 @font-face {
   font-family: "Superheat";
