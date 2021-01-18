@@ -9,6 +9,8 @@ export default {};
 </script>
 
 <style lang="css">
+@import "~@/assets/reset.css";
+
 .app-core {
   width: 100vw;
   height: 100vh;
