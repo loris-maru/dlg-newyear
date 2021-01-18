@@ -36,7 +36,9 @@
   </div>
   <div v-show="showSocialMediaPopup" :class="$style.socialMediaPopup">
     <SocialMedia :url="socialMediaShareUrl" />
-    <button @click.prevent="showSocialMediaPopup = false">Cancel</button>
+    <button class="button-cancel" @click.prevent="showSocialMediaPopup = false">
+      Cancel
+    </button>
   </div>
 </template>
 
@@ -102,11 +104,15 @@ export default {
 <style module>
 .socialMediaPopup {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.78);
   z-index: 20;
 }
 </style>
@@ -272,5 +278,12 @@ video {
       box-shadow: 0 14px 22px rgba(0, 0, 0, 0.22);
     }
   }
+}
+
+.button-cancel {
+  margin-top: 10px;
+  font-family: Helvetica, "sans-serif";
+  background: transparent;
+  font-size: 20px;
 }
 </style>

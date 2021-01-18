@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="socialmedia-block">
     <!-- Sharingbutton Facebook -->
     <a
       class="resp-sharing-button__link"
@@ -91,6 +91,14 @@ export default {
 </script>
 
 <style scoped>
+.socialmedia-block {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
   display: inline-block;
