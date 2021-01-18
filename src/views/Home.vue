@@ -131,7 +131,7 @@ export default {
   align-items: center;
   border: 1px solid white;
   border-radius: 6px;
-  padding-top: 16vh;
+  padding-top: 4rem;
 
   @media (min-width: 768px) {
     padding-top: 8vh;
@@ -182,13 +182,13 @@ p {
 
 .date-subtitle {
   font-family: Helvetica, "sans-serif";
-  font-size: 6vw;
+  font-size: 22px;
   color: white;
   text-align: center;
   letter-spacing: 0.03em;
 
   @media (min-width: 768px) {
-    font-size: 1.8vw;
+    font-size: 24px;
   }
 }
 
@@ -215,9 +215,8 @@ video {
 }
 
 .interactive-box {
-  position: absolute;
-  bottom: 2rem;
-  width: 90%;
+  position: fixed;
+  bottom: 4rem;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -225,7 +224,7 @@ video {
   align-items: center;
 
   @media (min-width: 768px) {
-    width: 20%;
+    width: 44%;
     bottom: 6rem;
   }
 }
@@ -246,9 +245,12 @@ video {
   );
 
   @media (min-width: 768px) {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 60px;
     box-shadow: 0 14px 22px rgba(0, 0, 0, 0);
     transition: all ease-in-out 0.3s;
 
